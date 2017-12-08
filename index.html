@@ -1,0 +1,72 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+      
+    <!-- MDL CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+      
+    <link rel="stylesheet" href="styles.css">
+      
+      
+    <script>
+        var quoteOptions = ["Life is too short to be living somebody else's dream.","The only rule is don't be boring and dress cute wherever you go. Life is too short to blend in.","Life is short and its up to you to make it sweet."];
+        var authorOptions = ["Hugh Hefner","Paris Hilton","Sarah Louise Delany"];
+        var globalNumber;
+            
+        function generateQuote() {
+            var number = Math.floor((Math.random() * 3));
+            globalNumber = number;
+                
+            document.getElementById('author').innerHTML = authorOptions[number];
+            document.getElementById('quote').innerHTML = quoteOptions[number];
+        }
+        
+        function tweetQuote(){
+            var twitterurl = "https://twitter.com/intent/tweet?text=" + quoteOptions[globalNumber] + " - " + authorOptions[globalNumber];
+            window.open(twitterurl);
+        }
+    </script>
+  </head>
+  <body>
+    <div class="row" id="top">
+    </div>
+      
+    <div class="row" id="quoteCard">
+        <div class="col-3 mx-auto">
+            <div class="card text-white bg-warning" style="max-width: 100%;">
+                <div class="card-header lead strong" id="author">Quote Generator</div>
+                <div class="card-body pt-0 ">
+                    <h4 class="card-title"><i class="fa fa-quote-left" style="font-size:24px"></i></h4>
+                    <p class="card-text pb-4 lead" id="quote">Click the generate button for a random quote. </p>
+                    <div class="row" id="cardNavigation">
+                        <div class="col-8">
+                            
+                            <button type="button" class="btn btn-link pl-0 pt-0" id="twitterButton" onclick="tweetQuote()">
+                            <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></button>
+                        </div>
+                        <div class="col-4">
+                            <button id = "getMessage" class = "btn btn-outline-secondary" onclick="generateQuote();">New Quote</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS, then MDL JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
+</html>
